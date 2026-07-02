@@ -17,5 +17,24 @@
             "32x32": "$REPO_PATH$/dist/serenityos-theme/icon32.png"
         },
         "packageRoot": "$REPO_PATH$/dist/serenityos-theme"
+    },
+      {
+        "name": "fetch96",
+        "version": 1.0,
+        "friendlyName": "fetch96",
+        "description": "fastfetch-like program for Windows 96",
+        "author": "ivo9990",
+        "category": "utilities",
+        "feature_requirements": [],
+        "depends": [],
+        "installedSize": 11113,
+        "downloadSize": 3822,
+        "min_os_version": 300000,
+        "max_os_version": 400000000,
+        "iconFiles": {
+            "16x16": "$REPO_PATH$/dist/fetch96/icon16.png",
+            "32x32": "$REPO_PATH$/dist/fetch96/icon32.png"
+        },
+        "packageRoot": "$REPO_PATH$/dist/fetch96"
     }
 ]
