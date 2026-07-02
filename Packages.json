@@ -1,0 +1,21 @@
+[
+      {
+        "name": "serenityos-theme",
+        "version": 1.0,
+        "friendlyName": "SerenityOS theme",
+        "description": "a replica of the default SerenityOS theme in Windows 96",
+        "author": "ivo9990 | SerenityOS",
+        "category": "accessories",
+        "feature_requirements": [],
+        "depends": [],
+        "installedSize": 532500,
+        "downloadSize": 462924,
+        "min_os_version": 300000,
+        "max_os_version": 400000000,
+        "iconFiles": {
+            "16x16": "$REPO_PATH$/dist/serenityos-theme/icon16.png",
+            "32x32": "$REPO_PATH$/dist/serenityos-theme/icon32.png"
+        },
+        "packageRoot": "$REPO_PATH$/dist/serenityos-theme"
+    }
+]
