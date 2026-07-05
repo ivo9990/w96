@@ -1,15 +1,15 @@
 [
       {
         "name": "serenityos-theme",
-        "version": 1.0,
+        "version": 1.1,
         "friendlyName": "SerenityOS theme",
         "description": "a replica of the default SerenityOS theme in Windows 96",
         "author": "ivo9990 | SerenityOS",
         "category": "accessories",
         "feature_requirements": [],
         "depends": [],
-        "installedSize": 179971,
-        "downloadSize": 171862,
+        "installedSize": 183136,
+        "downloadSize": 175115,
         "min_os_version": 300000,
         "max_os_version": 400000000,
         "iconFiles": {
