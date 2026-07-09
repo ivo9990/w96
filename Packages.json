@@ -29,7 +29,7 @@
         "depends": [],
         "installedSize": 11113,
         "downloadSize": 3822,
-        "min_os_version": 300000,
+        "min_os_version": 400000,
         "max_os_version": 400000000,
         "iconFiles": {
             "16x16": "$REPO_PATH$/dist/fetch96/icon16.png",
