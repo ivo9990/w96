@@ -64,7 +64,7 @@
         "author": "ivo9990 | Gert Brinkmann / The KDE Community",
         "category": "accessories",
         "feature_requirements": [],
-        "depends": [],
+        "depends": ["crystalsvg"],
         "installedSize": 786432,
         "downloadSize": 376832,
         "min_os_version": 300000,
