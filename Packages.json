@@ -36,5 +36,43 @@
             "32x32": "$REPO_PATH$/dist/fetch96/icon32.png"
         },
         "packageRoot": "$REPO_PATH$/dist/fetch96"
+    },
+    {
+        "name": "crystalsvg",
+        "version": 1.0,
+        "friendlyName": "CrystalSVG icon pack",
+        "description": "CrystalSVG icons for Windows 96",
+        "author": "ivo9990 | Everaldo Coelho",
+        "category": "accessories",
+        "feature_requirements": [],
+        "depends": [],
+        "installedSize": 462848,
+        "downloadSize": 223005,
+        "min_os_version": 300000,
+        "max_os_version": 400000000,
+        "iconFiles": {
+            "16x16": "$REPO_PATH$/dist/crystalsvg/icon16.png",
+            "32x32": "$REPO_PATH$/dist/crystalsvg/icon32.png"
+        },
+        "packageRoot": "$REPO_PATH$/dist/crystalsvg"
+    }
+    {
+        "name": "plastik-theme",
+        "version": 1.0,
+        "friendlyName": "Plastik theme",
+        "description": "Plastik theme for Windows 96",
+        "author": "ivo9990 | Gert Brinkmann / The KDE Community",
+        "category": "accessories",
+        "feature_requirements": [],
+        "depends": [],
+        "installedSize": 786432,
+        "downloadSize": 376832,
+        "min_os_version": 300000,
+        "max_os_version": 400000000,
+        "iconFiles": {
+            "16x16": "$REPO_PATH$/dist/plastik/icon16.png",
+            "32x32": "$REPO_PATH$/dist/plastik/icon32.png"
+        },
+        "packageRoot": "$REPO_PATH$/dist/plastik"
     }
 ]
