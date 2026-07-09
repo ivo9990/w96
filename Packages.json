@@ -55,7 +55,7 @@
             "32x32": "$REPO_PATH$/dist/crystalsvg/icon32.png"
         },
         "packageRoot": "$REPO_PATH$/dist/crystalsvg"
-    }
+    },
     {
         "name": "plastik-theme",
         "version": 1.0,
