@@ -74,5 +74,24 @@
             "32x32": "$REPO_PATH$/dist/plastik/icon32.png"
         },
         "packageRoot": "$REPO_PATH$/dist/plastik"
+    },
+      {
+        "name": "96menu",
+        "version": 1.0,
+        "friendlyName": "96menu",
+        "description": "a customizable application launcher for Windows 96",
+        "author": "ivo9990",
+        "category": "utilities",
+        "feature_requirements": [],
+        "depends": [],
+        "installedSize": 13215,
+        "downloadSize": 6351,
+        "min_os_version": 300000,
+        "max_os_version": 400000000,
+        "iconFiles": {
+            "16x16": "$REPO_PATH$/dist/96menu/icon16.png",
+            "32x32": "$REPO_PATH$/dist/96menu/icon32.png"
+        },
+        "packageRoot": "$REPO_PATH$/dist/96menu"
     }
 ]
