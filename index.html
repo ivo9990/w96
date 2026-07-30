@@ -1,1 +1,222 @@
-add this url into the windows 96 package manager sources :)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>w96 repo [ivo9990]</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+  :root {
+    --bg-color: #1a1b26;
+    --card-bg: #24283b;
+    --card-border: #414868;
+    --text-main: #c0caf5;
+    --text-muted: #a9b1d6;
+    --accent-color: #7aa2f7;
+    --version-bg: #1f2335;
+  }
+
+  body {
+    font-family: 'JetBrains Mono', monospace;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    margin: 0;
+    padding: 2rem;
+  }
+
+  header {
+    max-width: 1000px;
+    margin: 0 auto 2rem auto;
+  }
+
+  h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.875rem;
+    color: var(--accent-color);
+  }
+
+  #search {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid var(--card-border);
+    box-sizing: border-box;
+    outline: none;
+    background-color: var(--card-bg);
+    color: var(--text-main);
+    font-family: inherit;
+    border-radius: 6px;
+  }
+
+  #search:focus {
+    border-color: var(--accent-color);
+  }
+
+  .package-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(920px, 1fr));
+    gap: 1.25rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .package-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.25rem;
+    display: flex;
+    gap: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .package-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-color);
+  }
+
+  .package-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+
+  .package-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .package-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .friendly-name {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: #ffffff;
+  }
+
+  .package-name {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    opacity: 0.85;
+    white-space: nowrap;
+  }
+
+  .version {
+    font-size: 0.75rem;
+    background-color: var(--version-bg);
+    color: #9ece6a; 
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-left: auto;
+    flex-shrink: 0;
+    border: 1px solid var(--card-border);
+  }
+
+  .description {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  .status-msg {
+    text-align: center;
+    grid-column: 1 / -1;
+    color: var(--text-muted);
+    padding: 2rem;
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <h1>my repository</h1>
+    <input type="text" id="search" placeholder="search packages . . ." />
+  </header>
+
+  <main id="package-list" class="package-grid">
+    <div class="status-msg">loading . . .</div>
+  </main>
+
+<script>
+
+  const REPO_BASE_PATH = '.'; 
+  let allPackages = [];
+
+  async function loadPackages() {
+    const listContainer = document.getElementById('package-list');
+    
+    try {
+      const response = await fetch('./Packages.json');
+      if (!response.ok) throw new Error(`critical shit! status: ${response.status}`);
+      
+      allPackages = await response.json();
+      renderPackages(allPackages);
+    } catch (error) {
+      listContainer.innerHTML = `<div class="status-msg">fail to load Packages.json (${error.message})</div>`;
+    }
+  }
+
+  function renderPackages(packages) {
+    const listContainer = document.getElementById('package-list');
+    listContainer.innerHTML = '';
+
+    if (packages.length === 0) {
+      listContainer.innerHTML = '<div class="status-msg">nun here :(</div>';
+      return;
+    }
+
+    packages.forEach(pkg => {
+      const iconPath = pkg.iconFiles?.['32x32']
+        ? pkg.iconFiles['32x32'].replace('$REPO_PATH$', REPO_BASE_PATH)
+        : '';
+
+      const card = document.createElement('div');
+      card.className = 'package-card';
+
+      card.innerHTML = `
+        <img 
+          src="${iconPath}" 
+          alt="${pkg.friendlyName || pkg.name} icon" 
+          class="package-icon"
+          onerror="this.style.visibility='hidden'" 
+        />
+        <div class="package-content">
+          <div class="package-header">
+            <span class="friendly-name" title="${pkg.friendlyName}">${pkg.friendlyName}</span>
+            <span class="package-name">(${pkg.name})</span>
+            <span class="version">v${pkg.version}</span>
+          </div>
+          <p class="description">${pkg.description}</p>
+        </div>
+      `;
+
+      listContainer.appendChild(card);
+    });
+  }
+
+  document.getElementById('search').addEventListener('input', (e) => {
+    const term = e.target.value.toLowerCase();
+    const filtered = allPackages.filter(pkg => 
+      pkg.friendlyName.toLowerCase().includes(term) ||
+      pkg.name.toLowerCase().includes(term) ||
+      pkg.description.toLowerCase().includes(term)
+    );
+    renderPackages(filtered);
+  });
+
+  loadPackages();
+</script>
+</body>
+</html>
