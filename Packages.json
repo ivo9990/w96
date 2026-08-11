@@ -93,7 +93,7 @@
             "32x32": "$REPO_PATH$/dist/96menu/icon32.png"
         },
         "packageRoot": "$REPO_PATH$/dist/96menu"
-    }
+    },
       {
         "name": "amp",
         "version": 1.0,
@@ -112,5 +112,5 @@
             "32x32": "$REPO_PATH$/dist/amp/icon32.png"
         },
         "packageRoot": "$REPO_PATH$/dist/amp"
-    },
+    }
 ]
