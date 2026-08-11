@@ -94,4 +94,23 @@
         },
         "packageRoot": "$REPO_PATH$/dist/96menu"
     }
+      {
+        "name": "amp",
+        "version": 1.0,
+        "friendlyName": "Another Music Player",
+        "description": "Music player with shuffle, synced lyrics and metadata support",
+        "author": "ivo9990",
+        "category": "accessories",
+        "feature_requirements": [],
+        "depends": [],
+        "installedSize": 70256,
+        "downloadSize": 19625,
+        "min_os_version": 400000,
+        "max_os_version": 400000000,
+        "iconFiles": {
+            "16x16": "$REPO_PATH$/dist/amp/icon16.png",
+            "32x32": "$REPO_PATH$/dist/amp/icon32.png"
+        },
+        "packageRoot": "$REPO_PATH$/dist/amp"
+    },
 ]
